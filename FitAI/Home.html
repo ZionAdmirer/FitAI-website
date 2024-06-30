@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit AI - Your Personal Fitness Coach</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin-left: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #ddd;
+        }
+
+        /* Hero section styles */
+        .hero {
+            background-color: #007bff;
+            color: #fff;
+            padding: 150px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #fff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Features section styles */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .feature {
+            text-align: center;
+            flex: 1;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .feature p {
+            font-size: 1.3em;
+            color: #555;
+        }
+
+        /* Testimonials section styles */
+        .testimonials {
+            background-color: #f9f9f9;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .testimonial {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .testimonial p {
+            font-size: 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Call to Action section styles */
+        .cta {
+            background-color: #007bff;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .cta p {
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+
+        .cta .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #fff;
+            color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .cta .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        /* Footer styles */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!-- <img src="logo.png" alt="Fit AI Logo"> -->
+                <span class="logo-text">Fit AI</span>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="bot.html">AI assistant</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Personal Fitness Coach</h1>
+                <p>Empowering you to achieve your fitness goals with AI-driven insights and personalized plans.</p>
+                <a href="assistant.html" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature">
+                <h2>Personalized Workouts</h2>
+                <p>Create customized workout plans tailored to your fitness level and goals.</p>
+            </div>
+            <div class="feature">
+                <h2>Nutrition Guidance</h2>
+                <p>Receive personalized diet recommendations based on your preferences and needs.</p>
+            </div>
+            <div class="feature">
+                <h2>Progress Tracking</h2>
+                <p>Track your fitness progress and receive real-time feedback to stay motivated.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="testimonial">
+                <img src="user1.jpg" alt="User 1">
+                <h3>John Doe</h3>
+                <p>"Fit AI has transformed my fitness journey. The personalized workouts and nutrition plans are exceptional!"</p>
+            </div>
+            <div class="testimonial">
+                <img src="user2.jpg" alt="User 2">
+                <h3>Jane Smith</h3>
+                <p>"I love how Fit AI keeps me accountable and motivated. It's like having a personal trainer in my pocket!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2>Ready to Achieve Your Fitness Goals?</h2>
+            <p>Start your journey with Fit AI today and experience personalized fitness coaching like never before.</p>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Fit AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Advanced JavaScript functionalities
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click', function() {
+            alert('Let\'s get started with Fit AI!');
+        });
+    </script>
+</body>
+</html>

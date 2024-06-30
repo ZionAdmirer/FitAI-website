@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Fitness Coach - Fit AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 4px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-header {
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 3em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .section-header p {
+            font-size: 1.6em;
+            color: #555;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .service {
+            flex: 1;
+            margin: 20px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .service:hover {
+            transform: translateY(-10px);
+        }
+        .service h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .service p {
+            font-size: 1.3em;
+            color: #555;
+        }
+        .cta {
+            margin-top: 80px;
+            text-align: center;
+        }
+        .cta .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta .btn:hover {
+            background-color: #0056b3;
+        }
+        .testimonial {
+            padding: 80px 0;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+        }
+        .testimonial p {
+            font-size: 1.6em;
+            max-width: 800px;
+            margin: auto;
+        }
+        .testimonial .author {
+            margin-top: 20px;
+            font-size: 1.4em;
+        }
+        .testimonial .position {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+        .contact {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 3em;
+            margin-bottom: 40px;
+            color: #007bff;
+        }
+        .contact .email {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .contact .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .contact .btn:hover {
+            background-color: #0056b3;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Fit AI Logo"> -->
+            <span class="logo-text">Fit AI</span>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <!-- <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </div>
+</header>
+    <div class="container">
+        <section class="section">
+            <div class="section-header">
+                <h2>Your Personal Fitness Coach</h2>
+                <p>Empowering you to achieve your fitness goals with personalized coaching and guidance.</p>
+            </div>
+            <div class="services">
+                <div class="service">
+                    <h3>Customized Workout Plans</h3>
+                    <p>Tailored exercise routines based on your fitness level, goals, and preferences.</p>
+                </div>
+                <div class="service">
+                    <h3>Nutrition Guidance</h3>
+                    <p>Personalized diet plans to optimize your health and achieve sustainable results.</p>
+                </div>
+                <div class="service">
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your fitness progress with advanced analytics and real-time feedback.</p>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="#contact" class="btn">Get Started Today</a>
+            </div>
+        </section>
+
+        <section class="testimonial">
+            <div class="container">
+                <p>"I've achieved more in fitness with Fit AI than I ever thought possible. Highly recommended!"</p>
+                <div class="author">John Doe</div>
+                <div class="position">Fitness Enthusiast</div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contact Your Personal Fitness Coach</h2>
+                <p class="email">Email: coach@fitai.com</p>
+                <a href="#" class="btn">Schedule a Consultation</a>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

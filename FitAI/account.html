@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Fit AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #555;
+            text-align: left;
+            width: 100%;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1em;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .error-message,
+        .success-message {
+            font-size: 1.1em;
+            text-align: center;
+            display: none;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+        .error-message {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        .success-message {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .loading {
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        .loading img {
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .additional-info {
+            margin-top: 30px;
+            font-size: 1.1em;
+            color: #555;
+            text-align: center;
+        }
+        .form-group .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group .form-control {
+            padding: 12px;
+            width: 100%;
+            font-size: 1.1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group .form-control:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        .form-group .form-control.error {
+            border-color: #dc3545;
+        }
+        .form-group .form-control.success {
+            border-color: #28a745;
+        }
+        .form-group .form-control::placeholder {
+            color: #999;
+        }
+        .form-group .form-control[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group .form-control[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .container h2 {
+                font-size: 2em;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="password"] {
+                padding: 10px;
+                font-size: 1em;
+            }
+            input[type="submit"] {
+                padding: 12px 18px;
+                font-size: 1.1em;
+            }
+            .additional-info {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Your Fit AI Account</h2>
+        <form id="createAccountForm" action="#" method="POST" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label class="form-label" for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <input type="submit" class="form-control" value="Create Account">
+        </form>
+        <div id="errorMessage" class="error-message"></div>
+        <div id="successMessage" class="success-message"></div>
+        <div id="loading" class="loading">
+            <img src="loading.gif" alt="Loading...">
+        </div>
+        <div class="additional-info">
+            Already have an account? <a href="login.html">Log in here</a>.
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Simple validation
+            if (username === '' || email === '' || password === '') {
+                displayMessage('errorMessage', 'Please fill in all fields.', 'error');
+                return false;
+            }
+
+            // Simulating server-side validation and account creation
+            // Here, you can add AJAX requests or API calls to validate and create the account
+
+            // Simulate loading state
+            showLoading();
+
+            setTimeout(() => {
+                // Simulate successful account creation
+                displayMessage('successMessage', 'Account created successfully!', 'success');
+                hideLoading();
+            }, 2000); // Adjust timeout based on actual backend response time
+
+            return false; // Prevent form submission for demo purpose
+        }
+
+        function displayMessage(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.innerText = message;
+            element.style.display = 'block';
+            element.className = type === 'error' ? 'error-message' : 'success-message';
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
