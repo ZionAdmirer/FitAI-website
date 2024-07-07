@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Fit AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Header styles */
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .navbar ul li {
+            margin-left: 20px;
+        }
+        .navbar ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .navbar ul li a:hover {
+            color: #ddd;
+        }
+        /* About section styles */
+        .about-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .about-section p {
+            font-size: 1.6em;
+            color: #555;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        /* Mission and Values section styles */
+        .mission-section {
+            background-color: #007bff;
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .mission-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .mission-section p {
+            font-size: 1.4em;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        /* Achievements section styles */
+        .achievements-section {
+            padding: 100px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        .achievements-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .achievement {
+            flex: 1;
+            margin: 20px;
+            padding: 30px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .achievement:hover {
+            transform: translateY(-10px);
+        }
+        .achievement h3 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .achievement p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Future Vision section styles */
+        .vision-section {
+            padding: 100px 0;
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        .vision-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        .vision-section p {
+            font-size: 1.6em;
+            color: #555;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.8;
+        }
+        /* Footer styles */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 100px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <!-- <img src="logo.png" alt="Fit AI Logo"> -->
+                <span class="logo-text">Fit AI</span>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <!-- <li><a href="index.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <h2>About Fit AI</h2>
+            <p>Fit AI is dedicated to revolutionizing the fitness industry through cutting-edge AI technology. We empower individuals to achieve their fitness goals by providing personalized workout plans, nutrition guidance, and real-time progress tracking.</p>
+        </div>
+    </section>
+
+    <section class="mission-section">
+        <div class="container">
+            <h2>Our Mission & Values</h2>
+            <p>Our mission is to empower individuals to lead healthier lives through innovative technology solutions. We value integrity, commitment to excellence, and continuous improvement in everything we do.</p>
+        </div>
+    </section>
+
+    <section class="achievements-section">
+        <div class="container">
+            <h2>Our Achievements</h2>
+            <div class="achievements">
+                <div class="achievement">
+                    <h3>5000+ Clients</h3>
+                    <p>Served over 5000 clients worldwide with personalized fitness solutions.</p>
+                </div>
+                <div class="achievement">
+                    <h3>Global Recognition</h3>
+                    <p>Received global recognition for innovation in fitness technology.</p>
+                </div>
+                <div class="achievement">
+                    <h3>Industry Awards</h3>
+                    <p>Won multiple industry awards for excellence in fitness technology and customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-section">
+        <div class="container">
+            <h2>Future Vision</h2>
+            <p>Looking ahead, we aim to expand our reach and impact by integrating advanced AI algorithms to provide even more personalized and effective fitness solutions worldwide.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Fit AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

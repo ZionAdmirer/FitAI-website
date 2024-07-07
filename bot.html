@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Activity Bot - Fit AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f1f1;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #555;
+            text-align: left;
+            width: 100%;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .activity-container {
+            margin-top: 30px;
+        }
+        .activity {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .activity h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+        .activity p {
+            font-size: 1.1em;
+            color: #555;
+        }
+        .bot-message {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .user-message {
+            background-color: #e2f7fb;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fit AI Daily Activity Suggestion</h2>
+        <div id="chatContainer">
+            <div class="bot-message">
+                <p>Welcome! I'm Fit AI, your personal fitness assistant. How active would you like to be today?</p>
+            </div>
+        </div>
+        <form id="activityForm" onsubmit="return suggestActivity(event)">
+            <div>
+                <label>Choose your activity level:</label><br>
+                <input type="radio" id="activeHigh" name="activity" value="high">
+                <label for="activeHigh">High Activity</label><br>
+                <input type="radio" id="activeMedium" name="activity" value="medium">
+                <label for="activeMedium">Medium Activity</label><br>
+                <input type="radio" id="activeLow" name="activity" value="low">
+                <label for="activeLow">Low Activity</label>
+            </div>
+            <div class="button-container">
+                <button type="submit" class="btn">Get Daily Activity</button>
+            </div>
+        </form>
+        <div id="activitySuggestions" class="activity-container"></div>
+    </div>
+
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const activityForm = document.getElementById('activityForm');
+        const activitySuggestions = document.getElementById('activitySuggestions');
+
+        function suggestActivity(event) {
+            event.preventDefault();
+
+            const activityLevel = document.querySelector('input[name="activity"]:checked');
+            if (!activityLevel) {
+                alert('Please select an activity level.');
+                return false;
+            }
+
+            // Add user's choice to chat interface
+            const userChoice = `
+                <div class="user-message">
+                    <p>${activityLevel.nextElementSibling.textContent}</p>
+                </div>
+            `;
+            chatContainer.innerHTML += userChoice;
+
+            // Scroll to bottom of chat
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            // Simulate bot typing delay
+            setTimeout(() => {
+                // Bot's response based on activity level
+                let botResponse = '';
+                switch (activityLevel.value) {
+                    case 'high':
+                        botResponse = `
+                            <div class="bot-message">
+                                <p>Great choice! Here are your suggested activities for today:</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Morning:</h3>
+                                <p>Start your day with a 30-minute jog or intense workout.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Afternoon:</h3>
+                                <p>Take a break and go for a swim or play a sport for 1 hour.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Evening:</h3>
+                                <p>Attend a fitness class or do strength training at the gym.</p>
+                            </div>
+                        `;
+                        break;
+                    case 'medium':
+                        botResponse = `
+                            <div class="bot-message">
+                                <p>Okay! Here are some activities to keep you active today:</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Morning:</h3>
+                                <p>Do a 20-minute yoga session or brisk walk in the park.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Afternoon:</h3>
+                                <p>Take a 30-minute cycling session or go for a light swim.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Evening:</h3>
+                                <p>Join a dance class or do home workout routines.</p>
+                            </div>
+                        `;
+                        break;
+                    case 'low':
+                        botResponse = `
+                            <div class="bot-message">
+                                <p>Alright! Here are some relaxing activities for today:</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Morning:</h3>
+                                <p>Practice deep breathing exercises or gentle stretching.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Afternoon:</h3>
+                                <p>Take short walks every hour or do chair yoga.</p>
+                            </div>
+                            <div class="activity">
+                                <h3>Evening:</h3>
+                                <p>Relax with meditation or light stretching before bed.</p>
+                            </div>
+                        `;
+                        break;
+                    default:
+                        break;
+                }
+
+                // Display bot response in activitySuggestions container
+                activitySuggestions.innerHTML = botResponse;
+
+                // Scroll to activity suggestions
+                activitySuggestions.scrollIntoView({ behavior: 'smooth' });
+            }, 1000);
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
